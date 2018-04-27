@@ -41,7 +41,7 @@ const styles = theme => ({
 });
 
 function SimpleExpansionPanel(props) {
-  const { classes, children, icon, title } = props;
+  const { classes, children, icon, title, count } = props;
   return (
       <ExpansionPanel classes={{
             root: classes.root,
@@ -57,6 +57,9 @@ function SimpleExpansionPanel(props) {
           <div className={classes.summary} >
             <Icon className={classes.icon}>{icon}</Icon>
             <Typography className={classes.heading}>{title}</Typography>
+            <div style={{background: 'rgba(255,255,255,0.5)', padding: '3px', borderRadius: '50%', fontSize: '8pt', width: '1.5em', height: '1.5em', marginLeft: '1em', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+              {count}
+            </div>
           </div>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.content}>
@@ -72,11 +75,13 @@ SimpleExpansionPanel.propTypes = {
   children: PropTypes.node.isRequired,
   classes: PropTypes.object.isRequired,
   icon: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  count: PropTypes.number.isRequired
 };
 
 SimpleExpansionPanel.defaultProps = {
   icon: 'star',
+  count: 0
 }
 
 export default withStyles(styles)(SimpleExpansionPanel);

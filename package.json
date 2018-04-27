@@ -5,8 +5,7 @@
   "public": true,
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "rimraf build",
     "build:es2015": "NODE_ENV=production babel ./src --ignore *.test.js --out-dir ./build",
@@ -26,6 +25,8 @@
     "react-scripts": "1.1.4"
   },
   "devDependencies": {
+    "@storybook/addon-info": "^3.4.2",
+    "@storybook/react": "^3.4.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.2",
