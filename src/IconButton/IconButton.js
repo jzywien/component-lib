@@ -1,39 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Icon from 'material-ui/Icon';
-import Button from 'material-ui/Button';
+import { Button } from 'react-md';
 
-const styles = theme => ({
-  root: {
-  },
-  leftIcon: {
-    marginRight: theme.spacing.unit,
-  },
-});
+import './IconButton.scss';
+
 
 function IconButton(props) {
   const { classes, icon, label, onClick } = props;
   return (
-    <Button className={classes.button}
-      variant="raised"
-      color="primary"
-      onClick={onClick}>
-    <Icon className={classes.leftIcon}>{icon}</Icon>
+    <Button className='IconButton' onClick={onClick} raised primary iconClassName={'material-icons'} iconChildren={icon}>
       {label}
-  </Button>
-
+    </Button>
   );
 }
 
 IconButton.propTypes = {
   classes: PropTypes.object.isRequired,
   icon: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func
 };
 
 IconButton.defaultProps = {
   icon: 'star',
 }
 
-export default withStyles(styles)(IconButton);
+export default IconButton;

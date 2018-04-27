@@ -3,27 +3,10 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import IconButton from '../src/IconButton';
 import SimpleExpansionPanel from '../src/SimpleExpansionPanel';
-import { withStyles, MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import TextField from 'react-md/lib/TextFields/TextField';
 import { withInfo } from '@storybook/addon-info';
+import './index.scss';
 
-const styles = theme => ({
-  panel: {
-    width: '50%'
-  },
-  leftIcon: {
-    marginRight: theme.spacing.unit,
-  },
-});
-
-const greenTheme = createMuiTheme({
-  palette: {
-    primary: {
-      light: 'rgb(212,222,204)',
-      main: 'rgb(103,125,79)',
-      contrastText: '#fff'
-    }
-  }
-});
 
 storiesOf('IconButton', module)
   .add('default', withInfo(`
@@ -34,22 +17,32 @@ storiesOf('IconButton', module)
   ~~~
 
   `)(() => (
-    <IconButton icon='star' label='Test'/>
+    <IconButton icon='star' label='Test' onClick={(event) => {alert('Button Was Clicked!')}}/>
   )));
 
 storiesOf('SimpleExpansionPanel', module)
-  .add('default', () => (
+  .add('default', withInfo(`
+  description or documentation about my component, supports markdown
+
+  `)(() => (
     <SimpleExpansionPanel icon="star" title="Sample Title" count="3" classes={{
     }}>
       Content!
     </SimpleExpansionPanel>
-  ))
-  .add('themed panel', () => (
-    <MuiThemeProvider theme={greenTheme}>
-      <SimpleExpansionPanel icon="star" title="Sample Title" count="5" classes={{
-      }}>
-        Content!
-      </SimpleExpansionPanel>
-    </MuiThemeProvider>
+  )))
+  .add('themed panel', withInfo(`
+  description or documentation about my component, supports markdown
 
-  ));
+  `)(() => (
+    <div>
+    <SimpleExpansionPanel icon="subject" title="Call Reasons" count="2" headerClassName="green-header" contentClassName="green-content">
+      <TextField label="Call Reason" placeholder="Choose Call Reason" />
+    </SimpleExpansionPanel>
+    <SimpleExpansionPanel icon="note_add" title="Call Notes" count="5" headerClassName="blue-header" contentClassName="blue-content">
+      <textarea style={{width: '100%', minHeight: '250px'}}></textarea>
+      <IconButton icon='add_circle' label='Save Note'/>
+
+    </SimpleExpansionPanel>
+    </div>
+
+  )));

@@ -1,0 +1,10 @@
+@import 'variables';
+@import '~react-md/src/scss/react-md';
+
+// Variable overrides
+$md-primary-color: rgb(45,85,137);
+$md-secondary-color: $md-purple-a-400;
+
+li {
+  list-style: none;
+}

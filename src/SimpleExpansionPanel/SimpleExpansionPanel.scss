@@ -1,0 +1,16 @@
+.SimpleExpansionPanel {
+  .md-panel-header {
+    background-color: #555;
+    color: white;
+    .md-text {
+      color: white;
+      font-weight: bold;
+    }
+    .md-icon {
+      color: rgba(255,255,255,0.8);
+    }
+  }
+  .md-panel-content {
+    padding: 2em;
+  }
+}

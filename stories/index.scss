@@ -1,0 +1,19 @@
+@import 'globals';
+
+@include react-md-everything;
+
+.green-header {
+  background-color: $main-green !important;
+}
+
+.green-content {
+  background-color: $light-green !important;
+}
+
+.blue-header {
+  background-color: $main-blue !important;
+}
+
+.blue-content {
+  background-color: $light-blue !important;
+}

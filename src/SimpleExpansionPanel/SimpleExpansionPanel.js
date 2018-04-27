@@ -1,79 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import ExpansionPanel, {
-  ExpansionPanelSummary,
-  ExpansionPanelDetails,
-} from 'material-ui/ExpansionPanel';
-import Icon from 'material-ui/Icon';
-import Typography from 'material-ui/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Grid from 'material-ui/Grid';
-
-const styles = theme => ({
-  root: {
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-    color: theme.palette.primary.contrastText
-  },
-  icon: {
-    paddingRight: theme.spacing.unit,
-    color: theme.palette.primary.light
-  },
-  summary: {
-    alignItems: 'center',
-    display: 'flex'
-  },
-  expandIcon: {
-    color: theme.palette.primary.contrastText
-  },
-  content: {
-    paddingTop: '20px',
-    color: '#555',
-    backgroundColor: theme.palette.primary.light
-  },
-  header: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText
-  }
-});
+import ExpansionPanel from 'react-md/lib/ExpansionPanels/ExpansionPanel';
+import './SimpleExpansionPanel.scss';
 
 function SimpleExpansionPanel(props) {
-  const { classes, children, icon, title, count } = props;
+  const { classes, children, icon, title, count, headerClassName, contentClassName } = props;
+
   return (
-      <ExpansionPanel classes={{
-            root: classes.root,
-            expanded: classes.panelHeader,
-        }} defaultExpanded={true}>
-        <ExpansionPanelSummary classes={{
-            root: classes.header,
-            expanded: classes.header,
-            expandIcon: classes.expandIcon
-          }}
-          style={{minHeight: '0px'}}
-          expandIcon={<ExpandMoreIcon />}>
-          <div className={classes.summary} >
-            <Icon className={classes.icon}>{icon}</Icon>
-            <Typography className={classes.heading}>{title}</Typography>
-            <div style={{background: 'rgba(255,255,255,0.5)', padding: '3px', borderRadius: '50%', fontSize: '8pt', width: '1.5em', height: '1.5em', marginLeft: '1em', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-              {count}
-            </div>
-          </div>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails className={classes.content}>
-          <Grid container spacing={24}>
-          {children}
-          </Grid>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
+    <ExpansionPanel className='SimpleExpansionPanel' headerClassName={headerClassName} contentClassName={'expansion-content ' + contentClassName} label={
+        <div style={{display: 'flex', alignItems: 'center'}
+        }>
+          <i class="md-icon material-icons" style={{marginRight: '5px'}}>{icon}</i>
+          {title}
+          <span style={{fontSize: '.75em', borderRadius: '50%', background: 'rgba(255,255,255,0.5)', width: '1.5em', height: '1.5em', marginLeft: '1em', textAlign: 'center'}}>{count}</span>
+        </div>
+      }  defaultExpanded footer={null}>
+      {children}
+    </ExpansionPanel>
   );
 }
 
 SimpleExpansionPanel.propTypes = {
   children: PropTypes.node.isRequired,
   classes: PropTypes.object.isRequired,
+  className: PropTypes.string,
+  headerClassName: PropTypes.string,
+  contentClassName: PropTypes.string,
   icon: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   count: PropTypes.number.isRequired
@@ -84,4 +36,4 @@ SimpleExpansionPanel.defaultProps = {
   count: 0
 }
 
-export default withStyles(styles)(SimpleExpansionPanel);
+export default SimpleExpansionPanel;
