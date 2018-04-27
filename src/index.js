@@ -1,14 +1,12 @@
 
 // Uncomment line below when building package for npm publish
-export {default as SimpleExpansionPanel} from './SimpleExpansionPanel';
-export {default as IconButton} from './IconButton';
+// export {default as SimpleExpansionPanel} from './SimpleExpansionPanel';
+// export {default as IconButton} from './IconButton';
 
 //Uncomment line below when testing locally
-/*
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
-*/
