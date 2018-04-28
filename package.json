@@ -1,6 +1,6 @@
 {
   "name": "@jzywien/component-lib",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "",
   "public": true,
   "main": "index.js",
@@ -11,7 +11,7 @@
     "build:webpack": "webpack",
     "build:es2015": "NODE_ENV=production babel ./src --ignore *.test.js --out-dir ./build",
     "build:copy-files": "babel-node ./scripts/copy-files.js",
-    "build": "yarn build:es2015 && yarn build:copy-files",
+    "build": "yarn build:webpack && yarn build:copy-files",
     "version": "yarn build && npm publish build --access public"
   },
   "author": "",
