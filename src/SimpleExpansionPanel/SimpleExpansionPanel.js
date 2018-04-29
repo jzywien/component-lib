@@ -4,16 +4,17 @@ import ExpansionPanel from 'react-md/lib/ExpansionPanels/ExpansionPanel';
 import './SimpleExpansionPanel.scss';
 
 function SimpleExpansionPanel(props) {
-  const { classes, children, icon, title, count, showCount, headerClassName, contentClassName } = props;
+  const { classes, children, icon, title, count, showCount, headerClassName, contentClassName, lightTheme } = props;
 
+  const classNames = `SimpleExpansionPanel ${lightTheme ? 'SimpleExpansionPanel-light' : ''}`
   return (
-    <ExpansionPanel className='SimpleExpansionPanel' headerClassName={headerClassName} contentClassName={'expansion-content ' + contentClassName} label={
+    <ExpansionPanel className={classNames} headerClassName={headerClassName} contentClassName={'expansion-content ' + contentClassName} label={
         <div style={{display: 'flex', alignItems: 'center'}
         }>
           <i class="md-icon material-icons" style={{marginRight: '5px'}}>{icon}</i>
           {title}
           {showCount &&
-            <span style={{fontSize: '.75em', borderRadius: '50%', background: 'rgba(255,255,255,0.5)', width: '1.5em', height: '1.5em', marginLeft: '1em', textAlign: 'center'}}>{count}</span>
+            <span className="count">{count}</span>
           }
         </div>
       }  defaultExpanded footer={null}>
@@ -31,13 +32,15 @@ SimpleExpansionPanel.propTypes = {
   icon: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   count: PropTypes.number.isRequired,
-  showCount: PropTypes.bool
+  showCount: PropTypes.bool,
+  lightTheme: PropTypes.bool
 };
 
 SimpleExpansionPanel.defaultProps = {
   icon: 'star',
   count: 0,
-  showCount: true
+  showCount: true,
+  lightTheme: false
 }
 
 export default SimpleExpansionPanel;

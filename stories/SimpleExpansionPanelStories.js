@@ -32,7 +32,7 @@ storiesOf('SimpleExpansionPanel', module)
 
   `)(() => (
     <div>
-    <SimpleExpansionPanel icon="note_add" title="Call Notes" count="5" headerClassName="blue-header" contentClassName="blue-content">
+    <SimpleExpansionPanel icon="note_add" title="Call Notes" count="5" lightTheme={true} headerClassName="blue-header" contentClassName="blue-content">
       <textarea style={{width: '100%', minHeight: '250px'}}></textarea>
       <IconButton icon='add_circle' label='Save Note'/>
     </SimpleExpansionPanel>
