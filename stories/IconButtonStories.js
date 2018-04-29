@@ -14,4 +14,14 @@ storiesOf('IconButton', module)
 
   `)(() => (
     <IconButton icon='star' label='Test' onClick={(event) => {alert('Button Was Clicked!')}}/>
+  )))
+  .add('hide icon', withInfo(`
+  description or documentation about my component, supports markdown
+
+  ~~~js
+  <IconButton icon='star' label='Test' showIcon={false}/>
+  ~~~
+
+  `)(() => (
+    <IconButton label='Test' showIcon={false} onClick={(event) => {alert('Button Was Clicked!')}}/>
   )));
