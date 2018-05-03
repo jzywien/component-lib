@@ -1,0 +1,9 @@
+.IconButton {
+  .md-icon-text {
+    font-weight: bold;
+    &:last-child {
+      padding-left: 4px;
+    }
+    text-align: center;
+  }
+}

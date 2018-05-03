@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ExpansionPanel from 'react-md/lib/ExpansionPanels/ExpansionPanel';
-import './SimpleExpansionPanel.scss';
+import StyledExpansionPanel from './StyledExpansionPanel';
+import styled, { css } from 'styled-components';
 
 class SimpleExpansionPanel extends Component {
   static propTypes = {
@@ -14,21 +14,19 @@ class SimpleExpansionPanel extends Component {
     title: PropTypes.string.isRequired,
     count: PropTypes.number.isRequired,
     showCount: PropTypes.bool,
-    lightTheme: PropTypes.bool  
   };
   static defaultProps = {
     icon: 'star',
     count: 0,
-    showCount: true,
-    lightTheme: false
+    showCount: true
   }
-  
+
   render() {
     const { className, classes, children, icon, title, count, showCount, headerClassName, contentClassName, lightTheme } = this.props;
-  
-    const classNames = `SimpleExpansionPanel ${lightTheme ? 'SimpleExpansionPanel-light' : ''} ${className}`
+
+    const classNames = `SimpleExpansionPanel ${className}`;
     return (
-      <ExpansionPanel className={classNames} headerClassName={headerClassName} contentClassName={'expansion-content ' + contentClassName} label={
+      <StyledExpansionPanel className={classNames} label={
           <div style={{display: 'flex', alignItems: 'center'}
           }>
             <i class="md-icon material-icons" style={{marginRight: '5px'}}>{icon}</i>
@@ -39,7 +37,7 @@ class SimpleExpansionPanel extends Component {
           </div>
         }  defaultExpanded footer={null}>
         {children}
-      </ExpansionPanel>
+      </StyledExpansionPanel>
     );
   }
 }
