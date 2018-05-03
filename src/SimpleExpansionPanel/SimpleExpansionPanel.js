@@ -8,17 +8,12 @@ class SimpleExpansionPanel extends Component {
     children: PropTypes.node.isRequired,
     classes: PropTypes.object.isRequired,
     className: PropTypes.string,
-    headerClassName: PropTypes.string,
-    contentClassName: PropTypes.string,
     icon: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     count: PropTypes.number.isRequired,
-    showCount: PropTypes.bool,
   };
   static defaultProps = {
     icon: 'star',
-    count: 0,
-    showCount: true
   }
 
   render() {
@@ -31,7 +26,7 @@ class SimpleExpansionPanel extends Component {
           }>
             <i class="md-icon material-icons" style={{marginRight: '5px'}}>{icon}</i>
             {title}
-            {showCount &&
+            {!!count &&
               <span className="count">{count}</span>
             }
           </div>
