@@ -13,7 +13,7 @@ class IconButton extends Component {
   }
 
   render() {
-    const { className, classes, icon, label, onClick, showIcon } = this.props;
+    const { className, classes, icon, label, onClick } = this.props;
     return (
       <Button className={`IconButton ${className}`} onClick={onClick} raised primary iconClassName={'material-icons'} iconChildren={!!icon && icon}>
         {label}

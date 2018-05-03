@@ -23,5 +23,5 @@ storiesOf('IconButton', module)
   ~~~
 
   `)(() => (
-    <IconButton label='Test' showIcon={false} onClick={(event) => {alert('Button Was Clicked!')}}/>
+    <IconButton label='Test' onClick={(event) => {alert('Button Was Clicked!')}}/>
   )));

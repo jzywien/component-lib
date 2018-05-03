@@ -22,7 +22,7 @@ storiesOf('SimpleExpansionPanel', module)
   description or documentation about my component, supports markdown
 
   `)(() => (
-    <SimpleExpansionPanel icon="star" title="Sample Title" showCount={false} classes={{
+    <SimpleExpansionPanel icon="star" title="Sample Title" classes={{
     }}>
       Content!
     </SimpleExpansionPanel>

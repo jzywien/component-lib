@@ -14,7 +14,7 @@ class SimpleExpansionPanel extends Component {
   };
 
   render() {
-    const { className, classes, children, icon, title, count, showCount, headerClassName, contentClassName, lightTheme } = this.props;
+    const { className, classes, children, icon, title, count } = this.props;
 
     const classNames = `SimpleExpansionPanel ${className}`;
     return (
