@@ -5,7 +5,7 @@ import { withInfo } from '@storybook/addon-info';
 import TextField from 'react-md/lib/TextFields/TextField';
 import SimpleExpansionPanel from '../src/SimpleExpansionPanel';
 import IconButton from '../src/IconButton';
-
+import { ThemeProvider } from 'styled-components';
 
 
 storiesOf('SimpleExpansionPanel', module)
@@ -30,12 +30,28 @@ storiesOf('SimpleExpansionPanel', module)
   .add('themed panel', withInfo(`
   description or documentation about my component, supports markdown
 
-  `)(() => (
-    <div>
-    <SimpleExpansionPanel icon="note_add" title="Call Notes" count="5" lightTheme={true} headerClassName="blue-header" contentClassName="blue-content">
-      <textarea style={{width: '100%', minHeight: '250px'}}></textarea>
-      <IconButton icon='add_circle' label='Save Note'/>
-    </SimpleExpansionPanel>
-    </div>
-
-  )));
+  `)(() => {
+    const blueTheme = {
+      icon: {
+        color: 'white'
+      },
+      expansion: {
+        header: {
+          collapserColor: 'white',
+          backgroundColor: 'rgb(45,85,137)',
+          textColor: 'white'
+        },
+        content: {
+          backgroundColor: 'rgb(195,207,226)'
+        }
+      }
+    };
+    return (
+      <ThemeProvider theme={blueTheme}>
+        <SimpleExpansionPanel icon="note_add" title="Call Notes" count="5">
+          <textarea style={{width: '100%', minHeight: '250px'}}></textarea>
+          <IconButton icon='add_circle' label='Save Note'/>
+        </SimpleExpansionPanel>
+      </ThemeProvider>
+    );
+  }));
