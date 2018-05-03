@@ -12,9 +12,6 @@ class SimpleExpansionPanel extends Component {
     title: PropTypes.string.isRequired,
     count: PropTypes.number.isRequired,
   };
-  static defaultProps = {
-    icon: 'star',
-  }
 
   render() {
     const { className, classes, children, icon, title, count, showCount, headerClassName, contentClassName, lightTheme } = this.props;
@@ -36,5 +33,9 @@ class SimpleExpansionPanel extends Component {
     );
   }
 }
+
+SimpleExpansionPanel.defaultProps = {
+  icon: 'star'
+};
 
 export default SimpleExpansionPanel;

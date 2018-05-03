@@ -12,9 +12,6 @@ class IconButton extends Component {
     onClick: PropTypes.func,
   }
 
-  static defaultProps = {
-  }
-
   render() {
     const { className, classes, icon, label, onClick, showIcon } = this.props;
     return (
